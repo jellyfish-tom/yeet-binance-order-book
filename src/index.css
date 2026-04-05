@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  main {
+    display: flex;
+  }
+
+  a {
+    background-color: transparent;
+  }
+
+  img {
+    border-style: none;
+  }
+
+  button {
+    margin: 0;
+    font: inherit;
+    line-height: 1.15;
+    text-transform: none;
+    overflow: visible;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  button,
+  a,
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@layer base {
+  :root {
+    --color-BasicBg: #181a20;
+    --color-SecondaryBg: #0b0e11;
+    --color-Input: #29313d;
+    --color-InputLine: #434c5a;
+    --color-CardBg: #202630;
+    --color-Line: #333b47;
+    --color-DisableText: #4f5867;
+    --color-TertiaryText: #707a8a;
+    --color-SecondaryText: #929aa5;
+    --color-PrimaryText: #eaecef;
+    --color-RedGreenBgText: #ffffff;
+    --color-TextOnYellow: #202630;
+    --color-IconNormal: #707a8a;
+    --color-BtnBg: #fcd535;
+    --color-Sell: #f6465d;
+    --color-DepthBuyBg: #102821;
+    --color-Buy: #2ebd85;
+    --color-Popup: #333b47;
+    --color-YellowAlpha01: rgba(252, 213, 53, 0.1);
+    --color-YellowAlpha02: rgba(252, 213, 53, 0.2);
+    --color-LineAlpha: rgba(193, 204, 219, 0.08);
+
+    --app-bg: var(--color-SecondaryBg);
+    --panel-bg: var(--color-BasicBg);
+    --panel-bg-soft: var(--color-CardBg);
+    --panel-bg-deep: var(--color-SecondaryBg);
+    --tooltip-bg: var(--color-Popup);
+    --line-color-strong: var(--color-Line);
+    --icon-normal: var(--color-IconNormal);
+    --icon-muted: var(--color-DisableText);
+    --text-primary: var(--color-PrimaryText);
+    --text-secondary: var(--color-SecondaryText);
+    --text-tertiary: var(--color-TertiaryText);
+    --surface-selected: var(--color-RedGreenBgText);
+    --surface-contrast: var(--color-TextOnYellow);
+    --surface-switch: var(--color-InputLine);
+    --buy-color: var(--color-Buy);
+    --sell-color: var(--color-Sell);
+    --buy-soft-fill: var(--color-DepthBuyBg);
+    --coin-accent: var(--color-BtnBg);
+
+    background-color: var(--app-bg);
+    color: var(--text-primary);
+    font-family: BinanceNova, Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .ob-panel-card {
+    @apply rounded-[8px] border border-(--color-LineAlpha) bg-(--panel-bg-soft);
+  }
+
+  .ob-elevated-card {
+    @apply w-full max-w-[420px] rounded-[12px] border border-(--color-LineAlpha) bg-(--panel-bg-soft) shadow-[0_20px_60px_rgba(0,0,0,0.35)];
+  }
+
+  .ob-floating-panel {
+    @apply z-20 rounded-[12px] bg-(--panel-bg-soft) shadow-[0_16px_48px_rgba(0,0,0,0.4)];
+  }
+
+  .ob-section-label {
+    @apply px-3 text-[10px] leading-[32px] text-(--text-tertiary);
+  }
+
+  .ob-section-divider {
+    @apply border-b border-(--line-color-strong);
+  }
+
+  .ob-table-grid {
+    @apply flex items-center;
+  }
+
+  .ob-table-cell {
+    @apply min-w-0 flex-1 basis-0 truncate;
+  }
+
+  .ob-table-cell-right {
+    @apply ml-3 min-w-0 flex-1 basis-0 truncate text-right;
+  }
+
+  .ob-table-cell-value {
+    @apply ml-3 min-w-0 flex-1 basis-0 truncate text-right text-(--text-primary);
+  }
+
+  .ob-compact-meta {
+    @apply text-[12px] leading-[16px];
+  }
+
+  .ob-text-primary {
+    @apply text-(--text-primary);
+  }
+
+  .ob-text-secondary {
+    @apply text-(--text-secondary);
+  }
+
+  .ob-text-tertiary {
+    @apply text-(--text-tertiary);
+  }
+
+  .ob-icon-normal {
+    @apply text-(--icon-normal);
+  }
+
+  .ob-icon-muted {
+    @apply text-(--icon-muted);
+  }
+
+  .ob-text-body-xs {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+
+  .ob-text-body-sm {
+    @apply text-[12px] leading-[20px];
+  }
+
+  .ob-text-body-md {
+    @apply text-[14px] leading-[22px];
+  }
+
+  .ob-text-title-sm {
+    @apply text-[14px] leading-[21px] font-medium;
+  }
+
+  .ob-text-action-sm {
+    @apply text-[12px] leading-[22px];
+  }
+
+  .ob-text-overline {
+    @apply text-[12px] font-medium uppercase tracking-[0.18em];
+  }
+
+  .ob-table-row {
+    @apply relative flex h-[20px] px-4 text-[12px] leading-[20px] tabular-nums;
+  }
+
+  .ob-table-row-surface {
+    @apply relative flex h-[20px] flex-1 items-center overflow-hidden;
+  }
+
+  .ob-overlay-card {
+    @apply h-fit w-[180px] rounded-[8px] bg-[var(--color-PrimaryText)] px-2 py-1 text-[var(--color-SecondaryBg)] opacity-95 shadow-[0_12px_32px_rgba(0,0,0,0.32)];
+  }
+
+  .ob-overlay-row {
+    @apply flex w-full items-center justify-between p-0 text-[12px] leading-[18px];
+  }
+
+  .ob-inline-stat {
+    @apply flex items-center leading-[18px];
+  }
+}
